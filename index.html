@@ -1,0 +1,516 @@
+ 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- title web -->
+	<title>MagerNulis - Solusi orang mager nulis atau malas</title>
+	<!-- meta property  -->
+	<meta name="robots" content="noindex" />
+	<meta property="og:title" content="MagerNulis" />
+    <meta property="og:description" content="Solusi orang mager nulis atau malas." />
+    <!-- <meta property="og:image" content=""> -->
+    <!-- stylesheet for css -->
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/css/all.css" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/ijendev.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/animate.css" crossorigin="anonymous">
+</head>
+<body>
+	<!-- main header -->
+	<header>
+		<div class="container-head">
+			<h2>MagerNulis! <i class="far fa-pen"></i></h2>
+	
+			<button class="btn right" id="ig">Follow <i class="fab fa-instagram r"></i></button>
+		</div>
+	</header>
+			<div class="slider">
+	  <div class="line"></div>
+  <div class="subline inc"></div>
+  <div class="subline dec"></div>
+</div>
+<!-- main body -->
+<div class="body-html">
+	<div class="overlay">		
+		<div class="con-modal">
+			<div class="modal">
+					<div class="body">
+				<div class="formulir">
+					<h2>Settings <i class="far fa-cog"></i></h2>
+					<br><br>
+					<p>Font  Tulisan : </p>
+					<br>
+					<select id="font"
+                    onchange="localStorage.setItem('fontIndex', this.value);setup()">
+					</select>
+					<br><br>
+					<p>Ukuran Font : </p>
+					<br>
+					<input type="number"  id="fontsize" value="15" onchange="localStorage.setItem('fontSizeIndex', this.value);setup()" disabled>
+					<br><br>
+					<p>Kertas :</p>
+					<br>
+			  <select id="kertas"  onchange="localStorage.setItem('imageIndex', this.value);setup()">
+					</select>
+					<br><br>
+					<button class="btn" type="submit" id="save">Simpan perubahan <i class="far fa-check-circle"></i></button>
+					<br>		
+				</div>
+				<br>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div class="box">
+		<div class="container">
+			<div class="tag">
+			<p>#MagerNulisTugas</p>
+		    <br>	
+			<h1>Ngerjakan tugas online harus tulis dilembaran?</h1>
+			<br>
+			<p>98% siswa indonesia mager / malas ngerjakan tugas di lembaran. 
+			mager nulis tugas di lembaran?, Pakai MagerNulis aja 100% Cepat. </p>
+			<br><br>
+			<a href="#2"><button class="btn">Kerjakan Sekarang <i class="fal fa-pen"></i></button></a>
+			<br><br><br><br>
+			</div>
+			<div class="tag">
+				<br><br>
+				<img src="assets/img/undraw_Process_re_gws7.svg" alt="ilustrasi">
+			</div>
+			<br><br>
+			<div class="author">
+				<small>Created by Mohammad Sahrullah <i class="far fa-code"></i></small>
+			</div>
+			<br>
+		</div>
+	</div>
+	<div class="box-v2">
+		<div class="wrapper" id="2">
+			<div class="body">
+				<form id="download">
+				<div class="formulir">
+					<h2>Mulai mengerjakan!</h2>
+					<br>
+					<input type="text" id="nama" name="nama" placeholder="Nama Kamu" required="">
+					<input type="number" id="absen" name="nomor" placeholder="No Absen" required="">
+					<br><br>		
+					<input type="text" id="kelas" name="kelas" placeholder="Kelas">	
+					<input type="text" id="mapel" name="nama" placeholder="Nama Mapel atau Tugas">
+					<br><br>
+					<div class="date">
+						<br>
+						<label for="tanggal">Tanggal</label>
+						<br>
+						<input type="date" id="tanggal" name="tanggal">
+					</div>
+					<br><br>
+					<label for="">Tulis tugas disini</label>
+						<br><br>
+					<textarea class="areanulis" placeholder="Tulis atau paste disini tata tulisan dengan rapi..." id="areanulis" required></textarea>
+					<br><br>
+					<button class="btn bottom" type="submit" >Download! <i class="far fa-download"></i></button>
+					<button class="btn bottom" type="button" id="settings">Settings <i class="far fa-cog"></i></button>		
+				</div>
+				</form>
+				<br>
+			</div>
+			<div class="body">
+     <main class="paper-container"></main>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="ai-text-count">
+		<p id="line-text"></p>
+	</div>
+	<div class="box-v3">
+	<form onsubmit="">
+		<div class="comment">
+			<input type="text" name="" placeholder="Tulis comenn disini">
+			<button class="btn-add">Add <i class="far fa-plus"></i></button>
+		</div>
+		</form>
+</div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<style type="text/css">
+	.body-html{
+		display: none;
+	}
+	.ai-text-count{
+		position: fixed;
+		bottom: 20px;
+		right: 30px;
+		background: #fff;
+		border: 1px solid #dcdcdc;
+		border-left: 4px solid #4a8df8;
+		width: 250px;
+		padding: 20px;
+		display: none;
+		z-index: 9999;
+		animation: bounceInRight 0.5s ease-out;
+	}
+	.paper-container{
+		box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	}
+	.slider{
+  position:fixed;
+  z-index: 999;
+  width:100%;
+  height:10px;
+  overflow-x: hidden;
+}
+.comment{
+	position: sticky;
+	background: #fff
+	border: 1px solid #dcdcdc;
+	width: 100%;
+}
+.box-v3{
+	padding: 20px;
+	height: 100vh;
+}
+.r{
+	margin-left: 10px;
+}
+.comment input{
+	padding: 20px;
+	width: 100%;
+	box-sizing: border-box;
+}
+.line{
+  position:absolute;
+  opacity: 0.4;
+  background: #4a8df8;
+  width:150%;
+  height:5px;
+}
+.reviews a{
+	text-decoration: none;
+	color: #1386DD;
+}
+
+.subline{
+  position:absolute;
+  background:#4a8df8;
+  height:5px; 
+}
+.inc{
+animation: increase 2s infinite;
+}
+.dec{
+animation: decrease 2s 0.5s infinite;
+}
+
+@keyframes increase {
+ from { left: -5%; width: 5%; }
+ to { left: 130%; width: 100%;}
+}
+@keyframes decrease {
+ from { left: -80%; width: 80%; }
+ to { left: 110%; width: 10%;}
+}
+
+</style>
+<script type="text/javascript">
+	function onReady(callback) {
+  var intervalId = window.setInterval(function() {
+    if (document.getElementsByTagName('body')[0] !== undefined) {
+      window.clearInterval(intervalId);
+      callback.call(this);
+    }
+  }, 1000);
+}
+
+function setVisible(selector, visible) {
+  document.querySelector(selector).style.display = visible ? 'block' : 'none';
+}
+
+onReady(function() {
+  setVisible('.body-html', true);
+  setVisible('.slider', false);
+});
+</script>
+<script type="text/javascript">
+	const nama = document.querySelector('#nama');
+	const absen = document.querySelector('#absen');
+	const kelas = document.querySelector('#kelas');
+	const mapel = document.querySelector('#mapel');
+	const tanggal = document.querySelector('#tanggal');
+	const areanulis = document.querySelector('#areanulis');
+	const overlay = document.querySelector('.overlay');
+	const save = document.querySelector('#save');
+	// // const close = document.querySelector('#close');
+	const modal = document.querySelector('.modal');
+	const openSettings = document.querySelector('#settings');
+	nama.addEventListener("keyup", function () {
+		txtName = this.value
+	});
+	areanulis.addEventListener("keyup", function () {
+		txtContent = this.value
+		let text = document.getElementById("areanulis").value;   
+		let lines = text.split(/\r|\r\n|\n/);
+		let count = lines.length;
+		console.log(count);
+  		// console.log(length);
+		document.querySelector("#line-text").innerText = "all line : " + count + ",  all word : " + areanulis.value.length;
+		if (areanulis.value.length == 0) {
+			setTimeout(function() {
+				document.querySelector(".ai-text-count").style.display = "none";
+				document.querySelector(".ai-text-count").style.animation = "bounceInRight 0.5s ease-out";
+			}, 400);
+			document.querySelector(".ai-text-count").style.animation = "bounceOutRight 0.5s ease-out";
+		}else{
+			document.querySelector(".ai-text-count").style.display = "block";
+		}
+	});
+	absen.addEventListener("keyup", function () {
+		txtAbsen = this.value
+	});
+	kelas.addEventListener("keyup", function () {
+		txtKelas = this.value
+	});
+	mapel.addEventListener("keyup", function () {
+		txtMapel = this.value
+	});
+	tanggal.addEventListener("change", function () {
+		txtDate = this.value
+	});
+  	save.addEventListener("click", function () {
+  		setTimeout(function() {
+  			overlay.style.display = "none";
+  			modal.style.animation = "lightSpeedIn 0.4s ease-out";
+  		}, 300);
+		modal.style.animation = "bounceOut 0.4s ease-out";
+	});
+	openSettings.addEventListener("click", function () {
+		overlay.style.display = "block";
+	});
+
+ let bg, font, margin, gap, fontsize;
+
+    let txtDate = '',
+      txtName = '',
+      txtKelas = '',
+      txtMapel = '',
+      txtAbsen = '', 
+      txtContent = '';
+
+    let fonts = [{
+
+        'index': 0,
+        'name': 'Gloria Hallelujah  (Recommended)',
+        'file': 'GloriaHallelujah-Regular.ttf'
+      },
+      {     
+        'index': 1,
+        'name': 'HandwritingCR 2',
+        'file': 'HandwritingCR-2.ttf'
+      },
+      {
+        'index': 2,
+        'name': 'My HandWriting',
+        'file': 'My_handwriting.ttf'
+      },
+      {
+        'index': 3,
+        'name': 'Shadows Into Light',
+        'file': 'ShadowsIntoLight-Regular.ttf'
+      },
+      {
+        'index': 4,
+        'name': 'My HandSare Holding you',
+        'file': 'MyHandsareHoldingYou.ttf'
+      }
+    ];
+
+    let getFontIndex = () => {
+      let fontIndex = localStorage.getItem('fontIndex');
+      if (fontIndex) {
+        return fonts[fontIndex];
+      }
+      return fonts[0];
+    }
+     let fontSizeIndex = localStorage.getItem('fontSizeIndex');
+function setup() { 
+ createCanvas(300 * 2, 337 * 2);
+      bg = loadImage('img/' + getImageIndex().file);
+      font = loadFont('fonts/' + getFontIndex().file);
+     
+
+      textFont(font);
+      textSize(fontSizeIndex);
+ //    const ukuranFont = document.querySelector('#fontsize');
+ //   ukuranFont.addEventListener("keyup", function () {
+ //   	    fontsize = ukuranFont;
+
+	// });
+      
+
+      function myFunction(x) {
+  if (x.matches) { // If media query matches
+  	 createCanvas(200 * 2, 337 * 2);
+  } else {
+  
+  }
+}
+
+var x = window.matchMedia("(max-width: 700px)");
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction);
+
+function fungsi2(b) {
+  if (b.matches) { // If media query matches
+  	 createCanvas(150 * 2, 337 * 2);
+  } else {
+  
+  }
+}
+
+var b = window.matchMedia("(max-width: 425px)");
+fungsi2(b) // Call listener function at run time
+b.addListener(fungsi2);
+
+  }
+
+    function draw() {
+      // fix_dpi();
+      background(bg);
+      margin = 20;
+      fill(0, 0, 0, 200);
+      translate(margin - 8, margin * 4);
+      text(txtName, 0, -55);
+      text(txtAbsen, 0, -35);
+      text(txtKelas, 450, -33);
+      text(txtMapel, 250, -33);
+      text(txtDate, 450, -50);
+      translate(0, margin + 5);
+
+      text(txtContent, 0, -25, 580 /*, 800 */ );
+}
+
+  document.addEventListener('DOMContentLoaded', (e) => {
+      let fontSelectEl = document.getElementById('font');
+      let fontSelectOptionTemplate = (index, name) => {
+        let _selected = (index == getFontIndex().index) ? 'selected' : '';
+        return `<option value="${index}" ${_selected}>${name}</option>`;
+      }
+      let _temp = '';
+      fonts.forEach((font, index) => {
+        _temp += fontSelectOptionTemplate(index, font.name);
+      });
+      fontSelectEl.innerHTML = _temp;
+    });
+    let image = [{
+        'index': 0,
+        'names': 'Kertas biasa',
+        'file': 'hasil.png'
+      },
+      {
+        'index': 1,
+        'names': 'Portofolio',
+        'file': 'portfolio.jpg'
+      },
+    ];
+     let getImageIndex = () => {
+      let imageIndex = localStorage.getItem('imageIndex');
+      if (imageIndex) {
+        return image[imageIndex];
+      }
+      return image[0];
+    }
+    document.addEventListener('DOMContentLoaded', (e) => {
+      let imageSelectEl = document.getElementById('kertas');
+      let imageSelectOptionTemplate = (index,names) => {
+        let _selected = (index == getImageIndex().index) ? 'selected' : '';
+        return `<option value="${index}" ${_selected}>${names}</option>`;
+      }
+      let _image = '';
+      image.forEach((img, index) => {
+        _image += imageSelectOptionTemplate(index, img.names);
+      });
+      imageSelectEl.innerHTML = _image;
+    });
+  </script>
+  <script>
+    function downloadCanvas(c, filename) {
+      /// create an "off-screen" anchor tag
+      var lnk = document.createElement('a'),
+        e;
+      /// the key here is to set the download attribute of the a tag
+      lnk.download = filename;
+      /// convert canvas content to data-uri for link. When download
+      /// attribute is set the content pointed to by link will be
+      /// pushed as "download" in HTML5 capable browsers
+      lnk.href = c.toDataURL();
+      /// create a "fake" click-event to trigger the download
+      if (document.createEvent) {
+        e = document.createEvent("MouseEvents");
+        e.initMouseEvent("click", true, true, window,
+          0, 0, 0, 0, 0, false, false, false,
+          false, 0, null);
+        lnk.dispatchEvent(e);
+      } else if (lnk.fireEvent) {
+        lnk.fireEvent("onclick");
+      }
+    }
+    function fix_dpi() {
+      let canvas = document.getElementById('defaultCanvas0');
+      let dpi = window.devicePixelRatio;
+      let style = {
+        height() {
+          return +getComputedStyle(canvas).getPropertyValue('height').slice(0, -2);
+        },
+        width() {
+          return +getComputedStyle(canvas).getPropertyValue('width').slice(0, -2);
+        }
+      }
+      canvas.setAttribute('width', style.width() * dpi);
+      canvas.setAttribute('height', style.height() * dpi);
+    }
+
+const download = document.querySelector('#download');
+download.addEventListener("submit", function () {
+	var title = prompt('Beri nama tugas anda, sebelum disimpan?'); 
+ if (title === null) {
+ 	return;
+ }else{
+ 	downloadCanvas(document.getElementById('defaultCanvas0'), title + '.png');
+ }
+});
+
+// function checkingChar() {
+// var checkString = document.formname.txt.value;
+// if (checkString != "") {
+//     if ( /[^A-Za-z\d]/.test(checkString)) {
+//         alert("Please enter only letter and numeric characters");
+//         document.formname.txt.focus();
+//         return (false);
+//     }
+// }
+// }
+// let isBatterySupported = 'getBattery' in navigator;
+// if(!isBatterySupported) {
+//    console.log("Battery not supported");
+//    alert("Battery not supported");
+// }
+// let batteryPromise = navigator.getBattery();
+// batteryPromise.then(batteryCallback);
+
+// function batteryCallback(batteryObject) {
+//    printBatteryStatus(batteryObject);
+// }
+// function printBatteryStatus(batteryObject) {
+// 	alert("IsCharging",  batteryObject.charging);
+//     console.log("IsCharging", batteryObject.charging);
+//     console.log("Percentage", batteryObject.level);
+   
+//     console.log("charging Time", batteryObject.chargingTime);
+//     console.log("DisCharging Time", batteryObject.dischargingTime);
+// }
+  </script>
