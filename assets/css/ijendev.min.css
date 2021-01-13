@@ -178,6 +178,11 @@ header {
 
 header h2 {
     color: #1386DD;
+    font-size: 20px;
+}
+
+header button {
+    margin-top: 5px;
 }
 
 .right {
