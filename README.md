@@ -1,0 +1,3 @@
+# MagerNulis
+
+Developer : Mohammad Sahrullah
