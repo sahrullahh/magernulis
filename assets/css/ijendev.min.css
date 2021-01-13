@@ -193,7 +193,6 @@ header h2 {
 }
 
 .box-v2 {
-
     padding: 20px;
 }
 
@@ -204,7 +203,7 @@ header h2 {
 }
 
 .box .container {
-    width: 70%;
+    width: 1200px;
     box-sizing: border-box;
     margin-top: 5%;
 }
@@ -260,7 +259,11 @@ b {
 
 @media only screen and (max-width: 780px) {
     .container-head {
-        width: 90%;
+        width: 100%;
+    }
+
+    .box .container {
+        width: 100%;
     }
 
     .right {
