@@ -204,7 +204,7 @@ header h2 {
 }
 
 .box .container {
-    width: 1200px;
+    width: 70%;
     box-sizing: border-box;
     margin-top: 5%;
 }
