@@ -204,13 +204,13 @@ header h2 {
 }
 
 .box .container {
-    width: 90%;
+    width: 1200px;
     box-sizing: border-box;
     margin-top: 5%;
 }
 
 .container-head {
-    width: 70%;
+    width: 1200px;
 }
 
 .box h1 {

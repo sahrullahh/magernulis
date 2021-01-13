@@ -260,6 +260,8 @@ download.addEventListener("submit", function () {
  }
 });
 
+
+
 // function checkingChar() {
 // var checkString = document.formname.txt.value;
 // if (checkString != "") {
