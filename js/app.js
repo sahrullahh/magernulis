@@ -260,7 +260,12 @@ download.addEventListener("submit", function () {
  }
 });
 
-
+  function confirm(){
+        document.querySelector('.overlay2').style.display = "block";
+    }
+    function closePopup(){
+        document.querySelector('.overlay2').style.display = "none";
+ }
 
 // function checkingChar() {
 // var checkString = document.formname.txt.value;
