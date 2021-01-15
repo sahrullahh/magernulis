@@ -260,10 +260,7 @@ download.addEventListener("submit", function () {
  }
 });
 
-  function confirm(){
-        document.querySelector('.overlay2').style.display = "block";
-    }
-    function closePopup(){
+ function closePopup(){
         document.querySelector('.overlay2').style.display = "none";
  }
 
@@ -296,3 +293,65 @@ download.addEventListener("submit", function () {
 //     console.log("charging Time", batteryObject.chargingTime);
 //     console.log("DisCharging Time", batteryObject.dischargingTime);
 // }
+
+// Firebase Area
+
+// Your web app's Firebase configuration
+// var firebaseConfig = {
+//     apiKey: "AIzaSyBMF_4jJK9q1wRDwXg2hHfeFzQhdAJX3mY",
+//     authDomain: "nevom-1cc94.firebaseapp.com",
+//     databaseURL: "https://nevom-1cc94.firebaseio.com",
+//     projectId: "nevom-1cc94",
+//     storageBucket: "nevom-1cc94.appspot.com",
+//     messagingSenderId: "616067408469",
+//     appId: "1:616067408469:web:383360041abc015b03eadc"
+//   };
+//   // Initialize Firebase
+//   firebase.initializeApp(firebaseConfig);
+  
+  // Refernece contactInfo collections
+//   let contactInfo = firebase.database().ref("infos");
+  // Listen for a submit
+  document.querySelector("#contact-form").addEventListener("submit", submitForm);
+  
+  function submitForm(e) {
+
+    e.preventDefault();
+    document.querySelector('.overlay2').style.display = "block";
+    //   Get input Values
+    let name = document.querySelector("#name").value;
+    let email = document.querySelector("#email").value;
+    let message = document.querySelector("#message").value;
+    let number = document.querySelector("#number").value;
+    console.log(name, email, number, message);
+  
+    // saveContactInfo(name, email, message);
+  
+    document.querySelector("#contact-form").reset();
+    sendEmail(name, email, number, message);
+  }
+  
+  // Save infos to Firebase
+//   function saveContactInfo(name, email, number, message) {
+//     let newContactInfo = contactInfo.push();
+  
+//     newContactInfo.set({
+//       name: name,
+//       email: email,
+//       message: message,
+//     });
+//   }
+  
+function sendEmail(name, email, number, message){
+    let code = "wfoshlmrfzdjjukq";
+  let user = "necomcersnet@gmail.com";
+  Email.send({
+    Host : "smtp.gmail.com",
+    Username : user,
+    Password : code,
+    To : 'necomcersnet@gmail.com',
+    From : email,
+    Subject : `${name} mengirim anda pesan!`,
+    Body : `💌Email : ${email} <br/> 📞Nomor : ${number} <br/> 😀Pesan : ${message} `,
+});
+}

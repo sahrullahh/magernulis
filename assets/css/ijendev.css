@@ -63,7 +63,10 @@ button {
 .column {
     display: inline-block;
     max-width: 500px;
+    padding: 10px;
+    box-sizing: border-box;
     margin-left: 50px;
+    text-align: left;
     margin-top: 50px;
 }
 
@@ -72,13 +75,23 @@ button {
     width: 100%;
 }
 
+.row {
+    text-align: center;
+}
+
 .jumbotron textarea {
+    resize: none;
     width: 100%;
     box-sizing: border-box;
     outline: none;
     border: 1px solid #dcdcdc;
     padding: 10px;
     height: 200px;
+}
+
+.column:nth-child(2) {
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
 }
 
 .jumbotron input {

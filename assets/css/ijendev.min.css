@@ -265,6 +265,10 @@ b {
         width: 100%;
     }
 
+    .column {
+        margin-left: 0px;
+    }
+
     .box .container {
         width: 100%;
     }
