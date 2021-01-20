@@ -2,7 +2,7 @@
 
 Developer : Mohammad Sahrullah
 
-Version : 1.2.1
+Version : 1.2.8
 
 Fitur :
 
