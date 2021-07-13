@@ -9,3 +9,5 @@ Version : 1.2.8
 - perbaikan bugs
 
 - Penambahan PWA Pada Web (Masih Testing)
+
+- code secure
