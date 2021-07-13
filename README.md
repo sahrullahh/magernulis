@@ -4,6 +4,8 @@ Developer : Mohammad Sahrullah
 
 Version : 1.2.8
 
-Fitur :
+# Fitur :
 
-perbaikan bugs
+- perbaikan bugs
+
+- Penambahan PWA Pada Web (Masih Testing)

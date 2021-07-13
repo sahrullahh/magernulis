@@ -1,0 +1,23 @@
+{
+    "theme_color": "#1386DD",
+    "background_color": "#1386DD",
+    "display": "standalone",
+    "start_url": "-",
+    "scope": "./",
+    "name": "MagerNulis",
+    "short_name": "MagerNulis",
+    "icon": [
+        {
+            "src": "./img/author192round.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./img/author144round.png",
+            "sizes": "144x144",
+            "type": "image/png",
+             "purpose": "maskable"
+        }
+    ]
+}
