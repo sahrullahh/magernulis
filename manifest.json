@@ -19,6 +19,6 @@
     "theme_color": "#1386DD",
     "background_color": "#1386DD",
     "display": "standalone",
-    "start_url": "https://magernulis-mauve.vercel.app/",
+    "start_url": "https://magernulis-psi.vercel.app/",
     "scope": "./"
 }
